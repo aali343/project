@@ -1,0 +1,73 @@
+_name: Config
+action: train
+checkpoint: ./checkpoints
+config: ./config/base.yaml
+converted_path: ./checkpoints/converted_1_uttr
+cpc_path: ./cpc
+data_path: ./base_data_mixed
+device: cuda:0
+ex_name: TriAAN-VC
+logging: false
+model:
+  decoder:
+    c_h: 512
+    c_in: 16
+    c_out: 80
+    num_layer: 6
+  encoder:
+    c_h: 512
+    c_in: 256
+    c_out: 16
+    num_layer: 6
+model_name: model-best.pth
+n_uttr: 1
+num_worker: 0
+param_size: !!python/object/apply:numpy.core.multiarray.scalar
+- !!python/object/apply:numpy.dtype
+  args:
+  - f8
+  - false
+  - true
+  state: !!python/tuple
+  - 3
+  - <
+  - null
+  - null
+  - null
+  - -1
+  - -1
+  - 0
+- !!binary |
+  16NwPQp3UUA=
+resume: false
+seed: 1234
+setting:
+  eval_spks: 10
+  fmax: 7600
+  fmin: 80
+  n_fft: 400
+  n_frames: 128
+  n_mels: 80
+  n_shift: 160
+  s2s_portion: 0.1
+  sampling_rate: 16000
+  top_db: 60
+  win_length: 400
+  window: hann
+spk_info_path: ./Data/speaker-info.txt
+test:
+  threshold: 0.6895345449450861
+train:
+  batch_size: 8
+  cpc: true
+  epoch: 500
+  eval_every: 100
+  loss: l1
+  lr: 1e-4
+  save_epoch: 100
+  siam: true
+txt_path: ./Data/Mixed/txt
+urb_path: ./base_data_urban
+utt_path: ./base_data_utt
+vocoder_path: ./vocoder
+wav_path: ./vctk/wav48_silence_trimmed
